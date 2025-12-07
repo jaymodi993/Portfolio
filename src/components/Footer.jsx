@@ -1,30 +1,39 @@
 const Footer = () => (
-  <footer>
+  <footer className="footer-like-navbar">
     <div className="footer-container">
+      
+      {/* 1. Logo Section (Matches Navbar) */}
       <div className="footer-logo">
         <a href="#home" aria-label="Back to Top">
           <img src="/img/Jay's Portfolio_transparent.png" alt="Logo" loading="lazy" />
         </a>
       </div>
-      <div className="footer-links-wrapper">
-        <ul className="footer-list">
-          <li><a href="#home"><i className="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="#aboutme"><i className="fa-solid fa-user"></i> About</a></li>
-          <li><a href="#service"><i className="fa-solid fa-briefcase"></i> Services</a></li>
-          <li><a href="#project"><i className="fa-solid fa-code"></i> Projects</a></li>
-        </ul>
-        <ul className="footer-list">
-          <li><a href="https://www.linkedin.com/in/jay-modi-60965519a/" target="_blank"><i className="fa-brands fa-linkedin"></i> Linkedin</a></li>
-          <li><a href="https://twitter.com/jaymodi993" target="_blank"><i className="fa-brands fa-x-twitter"></i> Twitter</a></li>
-          <li><a href="https://github.com/jaymodi993" target="_blank"><i className="fa-brands fa-github"></i> Github</a></li>
-          <li><a href="https://wa.me/+918490093530" target="_blank"><i className="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
-          <li><a href="https://www.instagram.com/jaymodi993/" target="_blank"><i className="fa-brands fa-instagram"></i> Instagram</a></li>
-        </ul>
+
+      {/* 2. Navigation Links (Horizontal, like Navbar) */}
+      <ul className="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#aboutme">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#project">Projects</a></li>
+      </ul>
+
+      {/* 3. Social Icons (Styled simply) */}
+      <div className="footer-socials">
+        <a href="https://www.linkedin.com/in/jay-modi-60965519a/" target="_blank" aria-label="LinkedIn"><i className="fa-brands fa-linkedin"></i></a>
+        <a href="https://twitter.com/jaymodi993" target="_blank" aria-label="Twitter"><i className="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/jaymodi993" target="_blank" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/jaymodi993/" target="_blank" aria-label="Instagram"><i className="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/+918490093530" target="_blank" aria-label="WhatsApp"><i className="fa-brands fa-whatsapp"></i></a>
       </div>
+
     </div>
+
+    {/* Copyright Line */}
     <div className="copyright-text">
-      <p>copyright © jaymodi-portfolio.netlify.app | All right reserved</p>
+      <p>copyright © jaymodi-portfolio.netlify.app | All rights reserved</p>
     </div>
   </footer>
 );
+
 export default Footer;

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Education from './components/Education';
+import Experience from './components/Experience'; // <-- Import this
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Contact from './components/Contact';
@@ -29,6 +30,8 @@ function App() {
         <About />
         <hr />
         <Education />
+        <hr />
+        <Experience /> {/* <-- Add this line */}
         <hr />
         <Skills />
         <hr />

@@ -35,12 +35,14 @@ const Navbar = () => {
           </a>
         </div>
         <ul className={`nav-links ${active ? 'active' : ''}`}>
-          <li><a href="#home" onClick={() => setActive(false)}>Home</a></li>
-          <li><a href="#aboutme" onClick={() => setActive(false)}>About</a></li>
-          <li><a href="#service" onClick={() => setActive(false)}>Services</a></li>
-          <li><a href="#project" onClick={() => setActive(false)}>Projects</a></li>
-          <li><a href="#contact" onClick={() => setActive(false)}>Contact-Me</a></li>
-        </ul>
+  <li><a href="#home" onClick={() => setActive(false)}>Home</a></li>
+  <li><a href="#aboutme" onClick={() => setActive(false)}>About</a></li>
+  <li><a href="#education" onClick={() => setActive(false)}>Education</a></li> {/* Optional: Add Education link if missing */}
+  <li><a href="#experience" onClick={() => setActive(false)}>Experience</a></li> {/* <-- Add this line */}
+  <li><a href="#service" onClick={() => setActive(false)}>Services</a></li>
+  <li><a href="#project" onClick={() => setActive(false)}>Projects</a></li>
+  <li><a href="#contact" onClick={() => setActive(false)}>Contact-Me</a></li>
+</ul>
         <button
           className="theme-toggle-btn"
           id="theme-toggle"
