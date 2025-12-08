@@ -641,7 +641,7 @@ footer {
 /* Logo Fix */
 .logo img,
 .footer-logo img {
-  filter: invert(1);
+  filter: invert(0);
 }
 [data-theme="dark"] .logo img,
 [data-theme="dark"] .footer-logo img {
