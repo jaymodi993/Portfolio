@@ -54,7 +54,7 @@ body {
   line-height: 1.7;
 }
 
-/* Light mode specific background override to keep it clean */
+/* Light mode specific background override */
 body:not([data-theme="dark"]) {
   background-image: radial-gradient(
       circle at 10% 20%,
@@ -120,7 +120,8 @@ hr {
   margin-bottom: 60px;
   background: var(--gradient);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Gradient Text */
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 button {
@@ -232,6 +233,7 @@ header {
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 800;
 }
 .home-text h2 {
@@ -297,15 +299,17 @@ header {
 }
 
 /* --- Glass Cards (Common) --- */
+/* Added .service-card here to apply consistent styling */
 .education-item,
 .experience-item,
 .service-item,
+.service-card,
 .contact-content {
   background: var(--card-bg);
   backdrop-filter: var(--backdrop-filter);
   -webkit-backdrop-filter: var(--backdrop-filter);
   border: 1px solid var(--border-color);
-  border-radius: 20px; /* Modern Rounded */
+  border-radius: 20px;
   padding: 40px;
   box-shadow: var(--shadow);
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -313,7 +317,8 @@ header {
 
 .education-item:hover,
 .experience-item:hover,
-.service-item:hover {
+.service-item:hover,
+.service-card:hover {
   transform: translateY(-10px);
   border-color: var(--primary-color);
 }
@@ -416,7 +421,6 @@ header {
   transition: width 1.5s ease-out;
   position: relative;
 }
-/* Shining effect on bar */
 .skill-bar .skill-fill::after {
   content: "";
   position: absolute;
@@ -441,21 +445,39 @@ header {
   }
 }
 
-/* --- Services --- */
+/* --- Services (Updated for Icons) --- */
+.services-container,
 .service-content {
   display: flex;
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
 }
+
+.service-card,
 .service-item {
   flex-basis: 30%;
+  min-width: 250px;
   text-align: center;
 }
+
+.service-card h3,
 .service-item h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
   color: var(--heading-color);
+}
+
+.icon-wrapper {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .icon-wrapper {
+  transform: scale(1.1);
 }
 
 /* --- Contact --- */
@@ -478,7 +500,7 @@ header {
   margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.5); /* Semi-transparent inputs */
+  background: rgba(255, 255, 255, 0.5);
   color: var(--text-color);
   font-size: 1rem;
 }
@@ -507,27 +529,24 @@ header {
 }
 
 /* --- Footer --- */
-/* --- Footer Updates --- */
-
 footer {
   background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-color);
-  padding: 40px 5% 30px; /* Reduced top padding slightly for balance */
+  padding: 40px 5% 30px;
   margin-top: 100px;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* Pushes Logo left, Socials right */
+  justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto 30px;
 }
 
-/* 1. Added Specific Rule for Small Footer Logo */
 .footer-logo img {
-  height: 40px; /* Small and subtle */
+  height: 40px;
   width: auto;
   transition: transform 0.3s ease;
   display: block;
@@ -537,11 +556,9 @@ footer {
   transform: scale(1.05);
 }
 
-/* 2. Removed .footer-links styles (since links were deleted) */
-
 .footer-socials {
   display: flex;
-  gap: 15px; /* Adjusted gap for tighter look */
+  gap: 15px;
 }
 
 .footer-socials a {
@@ -553,15 +570,15 @@ footer {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 50%;
   color: var(--text-color);
-  font-size: 1.1rem; /* Ensure icons are visible */
+  font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 
 .footer-socials a:hover {
   background: var(--gradient);
   color: #fff;
-  transform: translateY(-3px) rotate(360deg); /* Added lift effect */
-  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3); /* Glow effect on hover */
+  transform: translateY(-3px) rotate(360deg);
+  box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
 }
 
 .copyright-text {
@@ -571,14 +588,6 @@ footer {
   border-top: 1px solid var(--border-color);
   padding-top: 25px;
   margin-top: 20px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
 /* --- Mobile Responsive --- */
@@ -592,7 +601,8 @@ footer {
   }
   .education-item,
   .experience-item,
-  .service-item {
+  .service-item,
+  .service-card {
     flex-basis: 100%;
   }
   .contact-content {
@@ -632,16 +642,12 @@ footer {
     gap: 30px;
     text-align: center;
   }
-  .footer-links {
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 
 /* Logo Fix */
 .logo img,
 .footer-logo img {
-  filter: invert(0);
+  filter: invert(1);
 }
 [data-theme="dark"] .logo img,
 [data-theme="dark"] .footer-logo img {
